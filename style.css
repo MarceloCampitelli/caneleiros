@@ -1,0 +1,47 @@
+:root {
+    --primary: #141414;
+    --light: #F3F3F3;
+    --dark: 	#686868;
+}
+
+html, body {
+    background-color: var(--primary);
+    color: var(--light);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+main {
+    width: 80%;
+    margin: 2rem auto;
+
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+    background-color: var(--light);
+}
+
+.icon-header {
+    height: 7rem;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+#painelLista {
+    margin-top: 2rem;
+}
+
+#listJogadores {
+    border: white solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: var(--dark);
+    margin: 10px;
+}
