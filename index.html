@@ -18,9 +18,7 @@
     </header>
     <main>
         <div class="botoes">
-            <button type="button" class="btn btn-primary btn-opcao" data-bs-toggle="modal" data-bs-target="#cadastrarJogador" data-bs-whatever="@mdo">
-                Cadastrar Jogador
-            </button>
+            <button type="button" class="btn btn-primary btn-opcao" data-bs-toggle="modal" data-bs-target="#cadastrarJogador" data-bs-whatever="@mdo">Cadastrar Jogador</button>
 
             <div class="modal fade" id="cadastrarJogador" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog">
@@ -109,39 +107,38 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary btn-opcao" data-bs-toggle="modal" data-bs-target="#selecionarJogador" data-bs-whatever="@mdo">
-                Selecionar jogadores
-            </button>
+            <button type="button" class="btn btn-primary btn-opcao" onclick="limparEscalacao()">Limpar escalação</button>
+        </div>
 
-            <div class="modal fade" id="selecionarJogador" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Selecionar jogador</h1>
+        <hr>
+
+        <div class="selecao">
+            <div class="selecao-01">
+                <form class="row g-3" id="cadJogadores">
+                    <div class="col-md-10">
+                        <label for="selectNome" class="form-label">Selecione o nome do jogador para adicionar</label>
+                        <select id="addNome" class="form-select select-nome">
+                        </select>
                     </div>
-                    <div class="modal-body">
-                        <form class="row g-3" id="cadJogadores">
-                            <div class="col-md-12">
-                                <label for="selectNome" class="form-label">Selecione o nome do jogador</label>
-                                <select id="selectNome" class="form-select select-nome">
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="adicionarJogador()">Adicionar</button>
-                    </div>
-                </div>
-                </div>
+                </form>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="adicionarJogador()">Adicionar</button>
             </div>
 
-            <button type="button" class="btn btn-primary btn-opcao" onclick="excluirCard()">Excluir cards</button>
-            <button type="button" onclick="limparLista()" class="btn btn-primary btn-opcao">Limpar escalação</button>
+            <div class="selecao-01">
+                <form class="row g-3" id="cadJogadores">
+                    <div class="col-md-10">
+                        <label for="selectNome" class="form-label">Selecione o nome do jogador para excluir</label>
+                        <select id="delNome" class="form-select select-nome">
+                        </select>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="excluirJogador()">Excluir</button>
+            </div>
         </div>
 
         <nav class="cards" id="cards">
         </nav>
+
     </main>
     <footer>
         <p>Desde 2022 - Blumenau Caneleiros Futebol Clube</p>

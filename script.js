@@ -35,6 +35,8 @@ const jogador03 = {
 };
 
 var jogadores = [];
+
+var escalacao = [];
   
 document.addEventListener("DOMContentLoaded", inicializarVariavel);
 
@@ -48,17 +50,22 @@ function inicializarVariavel() {
 }
 
 function listNomes() {
-    jogadores.forEach( jogador => addList(jogador))
+    jogadores.forEach( jogador => addList(jogador, "addNome"))
 }
 
-function addList(jogador){
+function addList(jogador, local) {
     const option = document.createElement("option");
-    const select = document.getElementById("selectNome");
+    const select = document.getElementById(local);
     option.id = jogador.id;
-    //option.classList.add("");
+    option.classList.add(local + jogador.id);
     option.text = jogador.nome;
 
     select.add(option);
+}
+
+function delList(jogador, local) {
+    const cardParaExcluir = document.querySelector('.' + local + jogador.id);
+    cardParaExcluir.parentNode.removeChild(cardParaExcluir);
 }
 
 function adicionarCampo() {
@@ -93,7 +100,7 @@ function adicionarCampo() {
     
     jogadores.push(jogadorNovo);
 
-    addList(jogadorNovo);
+    addList(jogadorNovo, "addNome");
 
     limparCampos();
 }
@@ -122,12 +129,11 @@ function copiarLista() {
     alert('Lista copiada para a área de transferência.');
 }
 
-function limparLista() {
-    var listJogadores = document.getElementById('listJogadores');
-    listJogadores.textContent = '';
-
-    var nome = document.getElementById('inputNome')
-    nome.focus();
+function limparEscalacao() {
+    const cardsParaExcluir = document.querySelectorAll('.card');
+    cardsParaExcluir.forEach(function(card) {
+        card.parentNode.removeChild(card);
+    });
 }
 
 function varrerRegistro(registro) {
@@ -135,6 +141,7 @@ function varrerRegistro(registro) {
 
     const card = document.createElement("div");
     card.classList.add("card");
+    card.classList.add("jogador" + registro.id);
 
     const card01 = document.createElement("div");
     card01.classList.add("card-01");
@@ -184,7 +191,7 @@ function varrerRegistro(registro) {
         cardCaracValor.classList.add("card-carac-valor");
         cardCaracValor.textContent = valor;
         cardCarac.appendChild(cardCaracValor);
-    }    
+    }
 
     const card02_2 = document.createElement("div");
     card02_2.classList.add("card-02-2");
@@ -192,7 +199,7 @@ function varrerRegistro(registro) {
 
     const card02_2Img = document.createElement("img");
     card02_2Img.classList.add("card-02-2-img");
-    card02_2Img.src = "neymar.png";
+    card02_2Img.src = "marcelo.png";
     card02_2Img.alt = "";
     card02_2.appendChild(card02_2Img);
 
@@ -235,6 +242,8 @@ function varrerRegistro(registro) {
     card03AtribNum.appendChild(caracNum);
 
     navCards.appendChild(card);
+
+    addList(registro, "delNome");
 }
 
 function criarCards() {
@@ -243,19 +252,32 @@ function criarCards() {
     });
 }
 
-function excluirCard() {
-    const cardParaExcluir = document.querySelector('.card');
-    const paiDoCard = cardParaExcluir.parentNode;
-    paiDoCard.removeChild(cardParaExcluir);
-}
-
 function adicionarJogador() {
-    var select = document.getElementById('selectNome');
+    const local = "addNome";
+    var select = document.getElementById(local);
     var idJogador = select.options[select.selectedIndex].id;
 
     for (var i = 0; i < jogadores.length; i++) {
         if (jogadores[i].id === idJogador) {
             varrerRegistro(jogadores[i]);
+            delList(jogadores[i], local)
+        }
+    }
+}
+
+function excluirJogador() {
+    const local = "delNome";
+    var select = document.getElementById(local);
+    var idJogador = select.options[select.selectedIndex].id;
+    const cardParaExcluir = document.querySelector('.jogador' + idJogador);
+    if (cardParaExcluir) {
+        cardParaExcluir.parentNode.removeChild(cardParaExcluir);
+
+        for (var i = 0; i < jogadores.length; i++) {
+            if (jogadores[i].id === idJogador) {
+                delList(jogadores[i], local);
+                addList(jogadores[i], "addNome");
+            }
         }
     }
 }

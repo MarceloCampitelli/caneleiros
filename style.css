@@ -23,12 +23,25 @@ main {
 }
 
 .btn-opcao {
-  width: 200px;;
+  width: 20rem;
 }
 
 .modal-content {
   background-color: var(--primary);
   border-color: #F3F3F3;
+}
+
+.selecao {
+  display: flex;
+  justify-content: center;
+}
+
+.selecao-01 {
+  flex-grow: 1;
+}
+
+#cadJogadores {
+  margin-bottom: 1rem;
 }
 
 .cards {
@@ -102,10 +115,12 @@ main {
 
 .card-02-2 {
   width: 10rem;
+  display: flex;
+  align-items: flex-end;
 }
 
 .card-02-2-img {
-  height: 200px;
+  width: 10rem;
 }
 
 .card-03 {
