@@ -1,25 +1,40 @@
 :root {
-    --primary: #141414;
-    --light: #F3F3F3;
-    --dark: 	#686868;
+  --primary: #141414;
+  --light: #F3F3F3;
+  --dark: 	#686868;
 }
 
 html, body {
-    background-color: var(--primary);
-    color: var(--light);
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    line-height: 1.4;
+  background-color: var(--primary);
+  color: var(--light);
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  line-height: 1.4;
 }
 
 main {
-    width: 80%;
-    margin: 2rem auto;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn-opcao {
+  width: 200px;;
+}
+
+.modal-content {
+  background-color: var(--primary);
+  border-color: #F3F3F3;
 }
 
 .cards {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -29,6 +44,7 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 10px;
 }
 
 .card-01 {
@@ -55,7 +71,7 @@ main {
   display: flex;
   font-family: monospace;
   font-weight: bold;
-  text-shadow: 2px 2px 8px black;
+  text-shadow: 1px 1px 8px gray;
 }
 
 .card-02-1 {
@@ -134,31 +150,32 @@ main {
 .margin {
   margin: 0;
 }
+
 header {
-    padding: 10px;
-    text-align: center;
-    background-color: var(--light);
+  padding: 10px;
+  text-align: center;
+  background-color: var(--light);
 }
 
 .icon-header {
-    height: 7rem;
-    margin-right: 10px;
-    border-radius: 50%;
+  height: 7rem;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 #painelLista {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 #listJogadores {
-    border: white solid 2px;
-    border-radius: 10px;
-    padding: 10px;
+  border: white solid 2px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 footer {
-    padding: 20px;
-    text-align: center;
-    color: var(--dark);
-    margin: 10px;
+  padding: 20px;
+  text-align: center;
+  color: var(--dark);
+  margin: 10px;
 }

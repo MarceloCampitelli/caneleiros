@@ -9,6 +9,7 @@
 		<link href="style.css" rel="stylesheet" />
 		<title>Caneleiros</title>
 		<script src="script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	</head>
 </head>
 <body>
@@ -16,139 +17,134 @@
         <img class="icon-header" src="caneleiros.jpg"> </a>
     </header>
     <main>
-        <h1>Cadastro:</h1>
+        <div class="botoes">
+            <button type="button" class="btn btn-primary btn-opcao" data-bs-toggle="modal" data-bs-target="#cadastrarJogador" data-bs-whatever="@mdo">
+                Cadastrar Jogador
+            </button>
 
-        <form class="row g-3" id="cadJogadores">
-            <div class="col-md-3">
-                <label for="inputNome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="inputNome">
+            <div class="modal fade" id="cadastrarJogador" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar jogador</h1>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3" id="cadJogadores">
+                            <div class="col-md-12">
+                                <label for="inputNome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="inputNome">
+                            </div>
+                
+                            <div class="col-md-6">
+                                <label for="inputPosicao1" class="form-label">Posição 1</label>
+                                <select id="inputPosicao1" class="form-select">
+                                    <option selected>Goleiro</option>
+                                    <option>Zagueiro</option>
+                                    <option>Meio</option>
+                                    <option>Atacante</option>
+                                </select>
+                            </div>
+                
+                            <div class="col-md-6">
+                                <label for="inputPosicao2" class="form-label">Posição 1</label>
+                                <select id="inputPosicao2" class="form-select">
+                                    <option selected>Goleiro</option>
+                                    <option>Zagueiro</option>
+                                    <option>Meio</option>
+                                    <option>Atacante</option>
+                                </select>
+                            </div>
+                
+                            <div class="col-md-3">
+                                <label for="inputHabilidade" class="form-label">Habilidade</label>
+                                <select id="inputHabilidade" class="form-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option selected>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                </select>
+                            </div>
+                
+                            <div class="col-md-3">
+                                <label for="inputResistencia" class="form-label">Resistência</label>
+                                <select id="inputResistencia" class="form-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option selected>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                </select>
+                            </div>
+                
+                            <div class="col-md-3">
+                                <label for="inputAtaque" class="form-label">Ataque</label>
+                                <select id="inputAtaque" class="form-select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                
+                            <div class="col-md-3">
+                                <label for="inputDefesa" class="form-label">Defesa</label>
+                                <select id="inputDefesa" class="form-select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="adicionarCampo()">Adicionar</button>
+                        <button type="button" onclick="limparCampos()" class="btn btn-primary">Limpar Campos</button>
+                    </div>
+                </div>
+                </div>
             </div>
 
-            <div class="col-md-3">
-                <label for="inputPosicao1" class="form-label">Posição 1</label>
-                <select id="inputPosicao1" class="form-select">
-                    <option selected>Goleiro</option>
-                    <option>Zagueiro</option>
-                    <option>Meio</option>
-                    <option>Atacante</option>
-                </select>
+            <button type="button" class="btn btn-primary btn-opcao" data-bs-toggle="modal" data-bs-target="#selecionarJogador" data-bs-whatever="@mdo">
+                Selecionar jogadores
+            </button>
+
+            <div class="modal fade" id="selecionarJogador" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Selecionar jogador</h1>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3" id="cadJogadores">
+                            <div class="col-md-12">
+                                <label for="selectNome" class="form-label">Selecione o nome do jogador</label>
+                                <select id="selectNome" class="form-select select-nome">
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="adicionarJogador()">Adicionar</button>
+                    </div>
+                </div>
+                </div>
             </div>
 
-            <div class="col-md-3">
-                <label for="inputPosicao2" class="form-label">Posição 1</label>
-                <select id="inputPosicao2" class="form-select">
-                    <option selected>Goleiro</option>
-                    <option>Zagueiro</option>
-                    <option>Meio</option>
-                    <option>Atacante</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
-                <label for="inputHabilidade" class="form-label">Habilidade</label>
-                <select id="inputHabilidade" class="form-select">
-                <option>1</option>
-                <option>2</option>
-                <option selected>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
-                <label for="inputResistencia" class="form-label">Resistência</label>
-                <select id="inputResistencia" class="form-select">
-                <option>1</option>
-                <option>2</option>
-                <option selected>3</option>
-                <option>4</option>
-                <option>5</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
-                <label for="inputAtaque" class="form-label">Ataque</label>
-                <select id="inputAtaque" class="form-select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option selected>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-            <div class="col-md-2">
-                <label for="inputDefesa" class="form-label">Defesa</label>
-                <select id="inputDefesa" class="form-select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option selected>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-
-            <div class="col-8">
-                <button type="button" onclick="adicionarCampo()" class="btn btn-primary">Adicionar</button>
-                <button type="button" onclick="limparCampos()" class="btn btn-primary">Limpar Campos</button>
-            </div>
-        </form>
-
-        <div id="painelLista">
-            <h2>Jogadores:</h2>
-            <pre id="listJogadores"></pre>
-            <button type="button" onclick="copiarLista()" class="btn btn-primary">Copiar</button>
-            <button type="button" onclick="limparLista()" class="btn btn-primary">Limpar lista</button>
+            <button type="button" class="btn btn-primary btn-opcao" onclick="excluirCard()">Excluir cards</button>
+            <button type="button" onclick="limparLista()" class="btn btn-primary btn-opcao">Limpar escalação</button>
         </div>
 
-        <nav class="cards">
-          <div class="card">
-            <div class="card-01">
-              <img class="card-01-logo" src="caneleiros.jpg" alt="">
-              <p class="card-01-titulo">Caneleiros FC</p>
-            </div>
-            <div class="card-02">
-              <div class="card-02-1">
-                <div class="card-carac">
-                  <p class="card-carac-titulo">Hab</p>
-                  <p class="card-carac-valor">3</p>
-                </div>
-                <div class="card-carac">
-                  <p class="card-carac-titulo">Res</p>
-                  <p class="card-carac-valor">3</p>
-                </div>
-                <div class="card-carac">
-                  <p class="card-carac-titulo">Atq</p>
-                  <p class="card-carac-valor">3</p>
-                </div>
-                <div class="card-carac">
-                  <p class="card-carac-titulo">Def</p>
-                  <p class="card-carac-valor">3</p>
-                </div>
-              </div>
-              <div class="card-02-2">
-                <img class="card-02-2-img" src="neymar.png" alt="">
-              </div>
-            </div>
-            <div class="card-03">
-              <div class="card-03-nome">
-                <p class="nome-jogador margin">NEYMAR JR.</p>
-              </div>
-              <div class="card-03-atrib">
-                <div class="card-03-atrib-carac">
-                  <p class="posicao-01 margin">Atacante</p>
-                  <p class="posicao-02 margin">Meio</p>
-                </div>
-                <div class="card-03-atrib-num">
-                  <p class="carac-num margin">32</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <nav class="cards" id="cards">
         </nav>
     </main>
     <footer>
-        <p>Desde 2022 - Blumenau Caneleiros</p>
+        <p>Desde 2022 - Blumenau Caneleiros Futebol Clube</p>
         <p>Marcelo Campitelli &copy 2024</p>
     </footer>
 </body>
