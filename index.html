@@ -139,6 +139,34 @@
         <nav class="cards" id="cards">
         </nav>
 
+        <button type="button" class="btn btn-primary btn-opcao"  data-bs-target="#gerartimes" data-bs-whatever="@mdo" onclick="gerarTimes()">Gerar Times</button>
+
+        <div class="modal fade" id="gerartimes" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Gerar Times</h1>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" id="cadJogadores">
+                        <div class="col-md-12">
+                            <label for="inputNome" class="form-label">Time A:</label>
+                            <textarea class="form-control" id="time1" style="height: 200px"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="inputNome" class="form-label">Time B:</label>
+                            <textarea class="form-control" id="time2" style="height: 200px"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick="gerarTimes()">Gerar Novamente</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
     </main>
     <footer>
         <p>Desde 2022 - Blumenau Caneleiros Futebol Clube</p>

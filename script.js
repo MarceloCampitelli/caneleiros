@@ -7,7 +7,8 @@ const jogador01 = {
     "resistencia": "3",
     "ataque": "3",
     "defesa": "3",
-    "numero": "28"
+    "numero": "28",
+    "foto":"marcelo.png"
     };
 
 const jogador02 = {
@@ -19,7 +20,8 @@ const jogador02 = {
     "resistencia": "3",
     "ataque": "3",
     "defesa": "3",
-    "numero": "28"
+    "numero": "28",
+    "foto":"marcelo.png"
     };
 
 const jogador03 = {
@@ -31,7 +33,8 @@ const jogador03 = {
     "resistencia": "3",
     "ataque": "3",
     "defesa": "3",
-    "numero": "28"
+    "numero": "28",
+    "foto":"marcelo.png"
 };
 
 var jogadores = [];
@@ -97,6 +100,8 @@ function adicionarCampo() {
     jogadorNovo['defesa'] = defesa.options[defesa.selectedIndex].text;
 
     jogadorNovo['numero'] = (id + 100).toString();
+
+    jogadorNovo['foto'] = "sem_foto.png";
     
     jogadores.push(jogadorNovo);
 
@@ -134,6 +139,14 @@ function limparEscalacao() {
     cardsParaExcluir.forEach(function(card) {
         card.parentNode.removeChild(card);
     });
+
+    const local = "delNome";
+    var select = document.getElementById(local);
+
+    for (var i = select.length - 1; i >= 0; i--) {
+        delList(jogadores[i], local);
+        addList(jogadores[i], "addNome");
+    }
 }
 
 function varrerRegistro(registro) {
@@ -199,7 +212,7 @@ function varrerRegistro(registro) {
 
     const card02_2Img = document.createElement("img");
     card02_2Img.classList.add("card-02-2-img");
-    card02_2Img.src = "marcelo.png";
+    card02_2Img.src = registro.foto;
     card02_2Img.alt = "";
     card02_2.appendChild(card02_2Img);
 
@@ -260,7 +273,8 @@ function adicionarJogador() {
     for (var i = 0; i < jogadores.length; i++) {
         if (jogadores[i].id === idJogador) {
             varrerRegistro(jogadores[i]);
-            delList(jogadores[i], local)
+            escalacao.push(jogadores[i]);
+            delList(jogadores[i], local);
         }
     }
 }
@@ -276,8 +290,31 @@ function excluirJogador() {
         for (var i = 0; i < jogadores.length; i++) {
             if (jogadores[i].id === idJogador) {
                 delList(jogadores[i], local);
+                let indiceParaRemover = escalacao.findIndex(item => item.id === idJogador);
+                if (indiceParaRemover !== -1) {
+                    escalacao.splice(indiceParaRemover, 1);
+                }
                 addList(jogadores[i], "addNome");
             }
         }
+    }
+}
+
+function gerarTimes() {
+    if (escalacao.length >= 2) {
+        
+        var timeA = document.getElementById('time1');
+        var timeB = document.getElementById('time2');
+
+        timeA.textContent = 'Aqui será setado o time A';
+        timeB.textContent = 'Aqui será setado o time B';
+
+        var myModal = new bootstrap.Modal(document.getElementById('gerartimes'), {
+            keyboard: false
+        });
+        myModal.show();
+    } else {
+        alert("A escalação deve ter pelo menos 10 jogadores para gerar os times.");
+        return;
     }
 }
